@@ -13,9 +13,9 @@ Documentation of the VSD Advanced Physiscal Design using OpenLANE/Sky130 5 day w
 ### Running Open lane:
 
 First, move to the work dir:
-
+```
 $ cd ~/Desktop/work/tools/open\_lane\_working\_dir/openLane\_flow
-
+```
 In this dir there is a file called flow.tcl, we need to source it with the -design switch to specify the name of the design to run and optionally if you want to run step by step place the switch -interactive:
 
 $ ./flow.tcl -design \&lt;design\_name\&gt; -interactive

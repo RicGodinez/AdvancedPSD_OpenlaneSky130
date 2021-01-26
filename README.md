@@ -75,7 +75,7 @@ Once it completes, you can see the resulting def (Design Exchange Format) file i
 $ ls ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/\&lt;design name\&gt;\_floorplan.def
 ```
 To view the file on a GUI, you need to invoke the Magic tool, to do so you need the following command:
-``````
+```
 $ magic -T \&lt;PDK tech file\&gt; lef read \&lt;Merged lef\&gt; read \&lt;Floorplan def\&gt;
 ```
 For the command above the location of the files is the following:

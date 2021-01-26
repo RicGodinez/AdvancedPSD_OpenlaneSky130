@@ -273,7 +273,7 @@ We open the design in magic and we activate the grid by pressing &quot;g&quot; o
 ```
 Which will print the following instructions:
 
-![image](https://user-images.githubusercontent.com/16291730/105904031-3e767700-5fe6-11eb-9621-a0f57da875d2.png)
+![image](https://user-images.githubusercontent.com/16291730/105908447-cdd25900-5feb-11eb-8d66-ed2f7faea942.png)
 
 So based on what the tracks.info file tells us for the li1 layer grid, we can set up the visual grid to match that grid with the command:
 ```

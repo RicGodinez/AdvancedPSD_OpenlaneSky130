@@ -2,13 +2,13 @@
 Documentation of the VSD Advanced Physiscal Design using OpenLANE/Sky130 5 day workshop
 # Advanced Physical Design Using OpenLANE and Skywater130
 
-![](RackMultipart20210126-4-zlf5u9_html_a628659dfa022217.png)
+![image](https://user-images.githubusercontent.com/16291730/105903884-138c2300-5fe6-11eb-8c2a-9fbd4fd2b79a.png)
 
 ## DAY 1
 
 ### Openlane flow
 
-![](RackMultipart20210126-4-zlf5u9_html_f7314a2ae82e2a9b.png)
+![image](https://user-images.githubusercontent.com/16291730/105903892-171faa00-5fe6-11eb-85f0-6bce8b05f97a.png)
 
 ### Running Open lane:
 
@@ -20,7 +20,7 @@ In this dir there is a file called flow.tcl, we need to source it with the -desi
 
 $ ./flow.tcl -design \&lt;design\_name\&gt; -interactive
 
-![](RackMultipart20210126-4-zlf5u9_html_20055a90d1306232.png)
+![image](https://user-images.githubusercontent.com/16291730/105903902-1a1a9a80-5fe6-11eb-896d-ca3e66659bee.png)
 
 Then import the open lane commands package when Open Lane opens
 
@@ -48,7 +48,7 @@ For example there is a report that shows the utilization of the cells in the des
 
 $less ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/reports /synthesis/yosys\_2.stat.rpt
 
-![](RackMultipart20210126-4-zlf5u9_html_f91ddf9825f7b7c4.png)
+![image](https://user-images.githubusercontent.com/16291730/105903911-1d158b00-5fe6-11eb-854d-ddf8698c4714.png)
 
 ## Day 2
 
@@ -89,7 +89,7 @@ For the command above the location of the files is the following:
 
 This will open the Magic GUI:
 
-![](RackMultipart20210126-4-zlf5u9_html_7f2ce558e46227d5.png)
+![image](https://user-images.githubusercontent.com/16291730/105903928-20a91200-5fe6-11eb-9dc0-c879da04cb06.png)
 
 Since this is just the floor plan stage, only the pins were placed according to the floorplan configuration, all the cells inside the design are not placed still, they are just appearing all in the bottom left corner of the die.
 
@@ -120,7 +120,7 @@ For the command above the location of the files is the following:
 - Placement def:
   - ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/placement/\&lt;design name\&gt;.placement.def
 
-![](RackMultipart20210126-4-zlf5u9_html_fe466508699e0874.png)
+![image](https://user-images.githubusercontent.com/16291730/105903939-243c9900-5fe6-11eb-84c4-95a68b54a430.png)
 
 ## Day 3
 
@@ -155,7 +155,7 @@ Where in this example these files are:
 
 This will open the magic&#39;s GUI to see the layout of this inverter:
 
-![](RackMultipart20210126-4-zlf5u9_html_9dd91c1f50ddfcbd.png)
+![image](https://user-images.githubusercontent.com/16291730/105903950-2868b680-5fe6-11eb-92c0-ca9a81f2e952.png)
 
 ###
 
@@ -187,7 +187,7 @@ This will generate the file &quot;sky\_130\_inv.spice&quot; file on the &quot;vs
 
 To launch a simulation, we first need to do some edits on the sky130\_inv.spice file we got from the magic tool, which looks like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_acf85c0d2c7d80e8.png)
+![image](https://user-images.githubusercontent.com/16291730/105903960-2b63a700-5fe6-11eb-8906-c4718e9118ff.png)
 
 The changes needed are:
 
@@ -206,7 +206,7 @@ The changes needed are:
 
 The resulting file looks like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_f38af333787fd5a.png)
+![image](https://user-images.githubusercontent.com/16291730/105903967-2e5e9780-5fe6-11eb-91c4-0537ee1fb89c.png)
 
 ### Custom CMOS inverter cell design- Run SPICE simulations
 
@@ -222,7 +222,7 @@ This is done by typing this command on the ngspice console:
 
 The resulting plot will look like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_49bd11c8ea70b40e.png)
+![image](https://user-images.githubusercontent.com/16291730/105903992-34547880-5fe6-11eb-94e9-7501baa33e82.png)
 
 ### Custom CMOS inverter cell design- Cell characterization
 
@@ -279,7 +279,7 @@ We open the design in magic and we activate the grid by pressing &quot;g&quot; o
 
 Which will print the following instructions:
 
-![](RackMultipart20210126-4-zlf5u9_html_7ffc74fc9ee195c3.png)
+![image](https://user-images.githubusercontent.com/16291730/105904013-3a4a5980-5fe6-11eb-8cb6-079228363ffb.png)
 
 So based on what the tracks.info file tells us for the li1 layer grid, we can set up the visual grid to match that grid with the command:
 
@@ -287,7 +287,7 @@ So based on what the tracks.info file tells us for the li1 layer grid, we can se
 
 Then you can go back ti layout window and verify the A and Y contacts indeed intersect with the li1 layer grid:
 
-![](RackMultipart20210126-4-zlf5u9_html_69e7c1bf7300c658.png)
+![image](https://user-images.githubusercontent.com/16291730/105904031-3e767700-5fe6-11eb-9621-a0f57da875d2.png)
 
 We can also verify that the width and the height of the full cell matches the requirements.
 
@@ -306,7 +306,7 @@ Then you need to fill the form that just appeared with the details of the port:
 
 See example below:
 
-![](RackMultipart20210126-4-zlf5u9_html_c34eb9adada50b59.png)
+![image](https://user-images.githubusercontent.com/16291730/105904038-41716780-5fe6-11eb-810c-de6c5952f2d8.png)
 
 Then these labels we created as ports, we need to classify them so the tool knows how to treat it. You select the label by pressing &quot;s&quot; on the keyboard until just the label is selected, then go to the tkcon window and type &quot;what&quot; to make sure you selected the correct label and see it is attached to the correct label.
 
@@ -316,7 +316,7 @@ Then you will specify the port usage with &quot;port use \&lt;signal power\&gt;&
 
 You can see the example below:
 
-![](RackMultipart20210126-4-zlf5u9_html_4923ae9f528eca1.png)
+![image](https://user-images.githubusercontent.com/16291730/105904046-459d8500-5fe6-11eb-9e6e-44c10571849d.png)
 
 Then we save a copy of the cell with the command:
 
@@ -330,7 +330,7 @@ This creates the lef file with the same name of your cell but with the extension
 
 If you read it you will see something like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_c6fb81d2e91f9724.png)
+![image](https://user-images.githubusercontent.com/16291730/105904057-49c9a280-5fe6-11eb-8e1c-e73cbcb8a1a1.png)
 
 ## Adding the custom cell to the design library
 
@@ -350,7 +350,7 @@ Then we need to edit the config.tcl in the design directory:
 
 We need to add the lines 15 through 20 shown in the picture:
 
-![](RackMultipart20210126-4-zlf5u9_html_5c40a3a89baa1dd4.png)
+![image](https://user-images.githubusercontent.com/16291730/105904074-4df5c000-5fe6-11eb-93ff-839425418186.png)
 
 This will let open lane know where to grab the characterization files and will add our lef to the list of lefs in the synthesys run.
 
@@ -376,7 +376,7 @@ Now, we just need to run synthesis and wait to see if the new library was used:
 
 You can check the list of standard cells used on the synthesis on the prompt:
 
-![](RackMultipart20210126-4-zlf5u9_html_33aabb6e2813a0e1.png)
+![image](https://user-images.githubusercontent.com/16291730/105904080-50f0b080-5fe6-11eb-9b58-996b8002db30.png)
 
 And we can see the custom cell was used 2201 times in the synthesis.
 
@@ -386,7 +386,7 @@ And we can see the custom cell was used 2201 times in the synthesis.
 
 Unfortunately, after running synthesis, the tool reported a slack problem with the new cell as shown on the image below:
 
-![](RackMultipart20210126-4-zlf5u9_html_7d4845e57b6a6e58.png)
+![image](https://user-images.githubusercontent.com/16291730/105904091-54843780-5fe6-11eb-849b-b50c7715185f.png)
 
 To fix it, we will change the synthesis strategy used. By changing this, you will sacrifice area for speed by a selecting different set of standard cells that will be faster, but bigger in size.
 
@@ -396,15 +396,15 @@ $ less ~/Desktop/work/tools/open\_lane\_working\_dir/openLane\_flow/configuratio
 
 You will notice there is an environmental variable used to change the strategy called &quot;SYNTH\_STRATEGY&quot;, which description is as follows:
 
-![](RackMultipart20210126-4-zlf5u9_html_f4d51ed8153e5b53.png)
+![image](https://user-images.githubusercontent.com/16291730/105904103-577f2800-5fe6-11eb-8d26-f7b56987bb75.png)
 
 As you can see the current SYNTH\_STRATEGY is set to 2, so we will change it to 2:
 
-![](RackMultipart20210126-4-zlf5u9_html_4d7cdce507c365da.png)
+![image](https://user-images.githubusercontent.com/16291730/105904123-5d750900-5fe6-11eb-95b9-77ffb0273edb.png)
 
 We will also modify the SYNTH\_SIZING variable:
 
-![](RackMultipart20210126-4-zlf5u9_html_5543b48201f2a38d.png)
+![image](https://user-images.githubusercontent.com/16291730/105904136-61089000-5fe6-11eb-8f2f-ffa3c72756e0.png)
 
 From 0 to 1
 
@@ -412,7 +412,7 @@ Next we will run synthesis again:
 
 % run\_synthesis
 
-![](RackMultipart20210126-4-zlf5u9_html_e472e8a7fa0bd573.png)
+![image](https://user-images.githubusercontent.com/16291730/105904144-64038080-5fe6-11eb-87eb-728e39dfcc43.png)
 
 We can see the slack still being violated, but we made a huge improvement, which we can fix later with a more focused timing analysis.
 
@@ -439,7 +439,7 @@ For the command above the location of the files is the following:
 - Placement def:
   - ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/placement/\&lt;design name\&gt;.placement.def
 
-![](RackMultipart20210126-4-zlf5u9_html_29016b614c599dac.png)
+![image](https://user-images.githubusercontent.com/16291730/105904150-67970780-5fe6-11eb-9db4-f7328872110a.png)
 
 ## Running STA
 
@@ -449,7 +449,7 @@ To run STA, we need to create a short script on the openlane work directory:
 
 Which looks like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_901e9355fb4c005b.png)
+![image](https://user-images.githubusercontent.com/16291730/105904166-6c5bbb80-5fe6-11eb-89ff-c7eeeaad69fe.png)
 
 To tell the sta tool where to find the models for setup time, hold time, the sdc file and the synthesized netlist.
 
@@ -461,13 +461,13 @@ $ sta \&lt;the sta config file\&gt;
 
 After doing our synthesis, we noticed a slack problem. After looking at the cells use, this slew values and load values are too high due to the fact they have a lot of fanout:
 
-![](RackMultipart20210126-4-zlf5u9_html_f1d5bc17642515dd.png)
+![image](https://user-images.githubusercontent.com/16291730/105904183-71206f80-5fe6-11eb-82a0-8783e7afd13b.png)
 
 You can see the fanout of some cells is driving 5 to 6 cells. To get a detail report on this on the sta tool, you can execute the command:
 
 % report\_net -connections \&lt;net to report\&gt;
 
-![](RackMultipart20210126-4-zlf5u9_html_de7bca243e52c5fe.png)
+![image](https://user-images.githubusercontent.com/16291730/105904192-741b6000-5fe6-11eb-9612-e6762c23df39.png)
 
 We can change the strategy for fanout to improve it:
 
@@ -545,21 +545,21 @@ Next you can run the report generation with:
 
 You should see the timing report like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_8d14cba7e987b114.png)
+![image](https://user-images.githubusercontent.com/16291730/105904202-77165080-5fe6-11eb-9e59-a1844c2ecbb4.png)
 
 You can also create a hold clock skew report with:
 
-% report\_clock\_skew -hold
+![image](https://user-images.githubusercontent.com/16291730/105904221-7b426e00-5fe6-11eb-8ef8-219fc50f178e.png)
 
 That looks like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_1ea5022f806dc10e.png)
+![image](https://user-images.githubusercontent.com/16291730/105904235-7ed5f500-5fe6-11eb-94f5-97acdb508d1d.png)
 
 And a skew report for setup:
 
 % report\_clock\_skew -setup
 
-![](RackMultipart20210126-4-zlf5u9_html_98aaabddbd4c32db.png)
+![image](https://user-images.githubusercontent.com/16291730/105904244-809fb880-5fe6-11eb-84ed-2b29bb2c92e8.png)
 
 ## Day 5
 
@@ -581,7 +581,7 @@ This will generate a def file containing the power rails on:
 
 If you open the def file it will look like this in magic:
 
-![](RackMultipart20210126-4-zlf5u9_html_416b335564a6bfe0.png)
+![image](https://user-images.githubusercontent.com/16291730/105904249-84333f80-5fe6-11eb-8835-80d16b9f9fb9.png)
 
 ## Routing
 
@@ -622,16 +622,16 @@ And the Verilog netlist you need to provide is different:
 
 After running the report, you can see if you meet the slack for hold:
 
-![](RackMultipart20210126-4-zlf5u9_html_dd4ff7e4d3a95ee1.png)
+![image](https://user-images.githubusercontent.com/16291730/105904262-885f5d00-5fe6-11eb-8275-751bfaabe6a8.png)
 
 Slack for setup:
 
-![](RackMultipart20210126-4-zlf5u9_html_f53a18463a66affe.png)
+![image](https://user-images.githubusercontent.com/16291730/105904269-8bf2e400-5fe6-11eb-94a4-71b2287c7fff.png)
 
 Clock skew for hold
 
-![](RackMultipart20210126-4-zlf5u9_html_5a2624516fd6912f.png)
+![image](https://user-images.githubusercontent.com/16291730/105904290-91502e80-5fe6-11eb-8875-a6c3b01461a1.png)
 
 And clock skew for setup
 
-![](RackMultipart20210126-4-zlf5u9_html_d1ec6de145fa3c20.png)
+![image](https://user-images.githubusercontent.com/16291730/105904299-944b1f00-5fe6-11eb-8959-97355fa9d986.png)

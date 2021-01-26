@@ -14,11 +14,11 @@ Documentation of the VSD Advanced Physiscal Design using OpenLANE/Sky130 5 day w
 
 First, move to the work dir:
 ```
-$ cd ~/Desktop/work/tools/open\_lane\_working\_dir/openLane\_flow
+$ cd ~/Desktop/work/tools/open_lane_working_dir/openLane_flow
 ```
 In this dir there is a file called flow.tcl, we need to source it with the -design switch to specify the name of the design to run and optionally if you want to run step by step place the switch -interactive:
 ```
-$ ./flow.tcl -design \&lt;design\_name\&gt; -interactive
+$ ./flow.tcl -design <design_name> -interactive
 ```
 ![image](https://user-images.githubusercontent.com/16291730/105903902-1a1a9a80-5fe6-11eb-896d-ca3e66659bee.png)
 
@@ -28,25 +28,25 @@ Then import the open lane commands package when Open Lane opens
 ```
 Then create the run directory of this specific run. Recommended to give the run a name so you can rework on this run under the same name using the switch -tag
 ```
-% prep -design picorv32a -tag \&lt;the name you want to give the run\&gt;
+% prep -design picorv32a -tag <the name you want to give the run>
 ```
 After running the prep command, the tool configured the run using the setting that appear con the config.tcl found in the design folder you chose to run, in the example avobe, the picorv32a design config file.
 
 Now we are ready to run synthesis with yosis on the loading the design with the command:
 ```
-% run\_synthesis
+% run_synthesis
 ```
 A synthesized netlist, if everything ran ok, can be found in the project&#39;s run directory:
 ```
-$ ls ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/synthesis
+$ ls ~/designs/picorv32a/runs/<the tag you used>/results/synthesis
 ```
 And a set of reports regarding the resulting netlist can be found at:
 ```
-$ ls ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/reports /synthesis
+$ ls ~/designs/picorv32a/runs/<the tag you used>/reports /synthesis
 ```
 For example there is a report that shows the utilization of the cells in the designs and other useful information:
 ```
-$less ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/reports /synthesis/yosys\_2.stat.rpt
+$less ~/designs/picorv32a/runs/<the tag you used>/reports /synthesis/yosys_2.stat.rpt
 ```
 ![image](https://user-images.githubusercontent.com/16291730/105903911-1d158b00-5fe6-11eb-854d-ddf8698c4714.png)
 
@@ -56,7 +56,7 @@ $less ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/reports /synthesis/yos
 
 For floor planning confugaration you can refer to the variables needed for this step inside the open lane configuration folder&#39;s README file:
 ```
-$ less ~/Desktop/work/tools/open\_lane\_working\_dir/openLane\_flow/configuration/README.md
+$ less ~/Desktop/work/tools/open_lane_working_dir/openLane_flow/configuration/README.md
 ```
 This file contains a description of the basic variables need to set on the whole flow and how to set them.
 
@@ -64,28 +64,28 @@ The file in this directory called floorplan.tcl contains all these variables set
 
 These variables can be customized by the designer depending on the needs of the design, but this needs to be done on a separate tcl file which will override this default settings, this file is located here:
 ```
-$ ls ~/designs/\&lt;your design\&gt;/\&lt;run name you placed on -tag\&gt;/config.tcl
+$ ls ~/designs/<your design>/<run name you placed on -tag>/config.tcl
 ```
 Once configured, you can run the floorplan process on an openlane terminal that has the synthesis step already completed with the command:
 ```
-% run\_floorplan
+% run_floorplan
 ```
 Once it completes, you can see the resulting def (Design Exchange Format) file in:
 ```
-$ ls ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/\&lt;design name\&gt;\_floorplan.def
+$ ls ~/designs/picorv32a/runs/<the tag you used>/results/<design name>_floorplan.def
 ```
 To view the file on a GUI, you need to invoke the Magic tool, to do so you need the following command:
 ```
-$ magic -T \&lt;PDK tech file\&gt; lef read \&lt;Merged lef\&gt; read \&lt;Floorplan def\&gt;
+$ magic -T <PDK tech file> lef read <Merged lef> read <Floorplan def>
 ```
 For the command above the location of the files is the following:
 
 - PDK tech file:
-  - ~/Desktop/work/tools/open\_lane\_working\_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
+  - ~/Desktop/work/tools/open_lane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
 - Merged lef:
-  - ~/designs/\&lt;your design\&gt;/\&lt;run name you placed on -tag\&gt;/tmp/merged.lef
+  - ~/designs/<your design>/<run name you placed on -tag>/tmp/merged.lef
 - Floorplan def:
-  - ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/floorplan/\&lt;design name\&gt;\_floorplan.def
+  - ~/designs/picorv32a/runs/<the tag you used>/results/floorplan/<design name>_floorplan.def
 
 This will open the Magic GUI:
 
@@ -101,24 +101,24 @@ This placement is done roughly, just for trying to approximate the location of t
 
 The command to run placement in the open lame command line is:
 ```
-%run\_placement
+%run_placement
 ```
 The resulting file is a def file located in:
 
-~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/placement/\&lt;design name\&gt;.placement.def
+~/designs/picorv32a/runs/<the tag you used>/results/placement/<design name>.placement.def
 
 To see the placement in a GUI:
 ```
-$ magic -T \&lt;PDK tech file\&gt; lef read \&lt;Merged lef\&gt; read \&lt;Floorplan def\&gt;
+$ magic -T <PDK tech file> lef read <Merged lef> read <Floorplan def>
 ```
 For the command above the location of the files is the following:
 
 - PDK tech file:
-  - ~/Desktop/work/tools/open\_lane\_working\_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
+  - ~/Desktop/work/tools/open_lane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
 - Merged lef:
-  - ~/designs/\&lt;your design\&gt;/\&lt;run name you placed on -tag\&gt;/tmp/merged.lef
+  - ~/designs/<your design>/<run name you placed on -tag>/tmp/merged.lef
 - Placement def:
-  - ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/placement/\&lt;design name\&gt;.placement.def
+  - ~/designs/picorv32a/runs/<the tag you used>/results/placement/<design name>.placement.def
 
 ![image](https://user-images.githubusercontent.com/16291730/105903939-243c9900-5fe6-11eb-84c4-95a68b54a430.png)
 
@@ -144,14 +144,14 @@ Once we have the inverter cell files downloaded, we can open them with the Magic
 
 For this, we need the following command:
 ```
-$ magic -T \&lt;PDK tech file\&gt; \&lt;cell&#39;s magic format file\&gt;
+$ magic -T <PDK tech file> <cell&#39;s magic format file>
 ```
 Where in this example these files are:
 
 - PDK tech file:
-  - ~/Desktop/work/tools/open\_lane\_working\_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
+  - ~/Desktop/work/tools/open_lane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
 - Cell&#39;s magic format file
-  - ~/Desktop/vsdstdcelldesign/sky130\_inv.mag
+  - ~/Desktop/vsdstdcelldesign/sky130_inv.mag
 
 This will open the magic&#39;s GUI to see the layout of this inverter:
 
@@ -165,13 +165,13 @@ This will open the magic&#39;s GUI to see the layout of this inverter:
 
 While the Magic tool is open with the inverter design loaded, we will want to extract the parasitic resistances and the parasitic capacitances in order to run some SPICE simulations on this cell.
 
-To do this, we need to go to the Magic tool console, that was opened along the GUI of the tool, this console window is called &quot;tkcon\_2.3 Main&quot;.
+To do this, we need to go to the Magic tool console, that was opened along the GUI of the tool, this console window is called &quot;tkcon_2.3 Main&quot;.
 
 In this window you are able to type commands to get more details on the selected objects on the layout GUI page and some other commands. To extract the parasitic data, you need to type the following on the tkcon console:
 ```
 % extract all
 ```
-This will create a &quot;sky\_130\_inv.ext&quot; file on the &quot;vsdstdcelldesign&quot; directory. Which contains the extraction for all the elements on this design.
+This will create a &quot;sky_130_inv.ext&quot; file on the &quot;vsdstdcelldesign&quot; directory. Which contains the extraction for all the elements on this design.
 
 Next, we will type on the console:
 ```
@@ -181,11 +181,11 @@ Which will prepare the tool to extract a spice compatible file with the RC paras
 ```
 % ext2spice
 ```
-This will generate the file &quot;sky\_130\_inv.spice&quot; file on the &quot;vsdstdcelldesign&quot; directory. With this file we now have the template to run a spice simulation on this inverter.
+This will generate the file &quot;sky_130_inv.spice&quot; file on the &quot;vsdstdcelldesign&quot; directory. With this file we now have the template to run a spice simulation on this inverter.
 
 ### Custom CMOS inverter cell design- Prepare SPICE simulations
 
-To launch a simulation, we first need to do some edits on the sky130\_inv.spice file we got from the magic tool, which looks like this:
+To launch a simulation, we first need to do some edits on the sky130_inv.spice file we got from the magic tool, which looks like this:
 
 ![image](https://user-images.githubusercontent.com/16291730/105903960-2b63a700-5fe6-11eb-8906-c4718e9118ff.png)
 
@@ -212,13 +212,13 @@ The resulting file looks like this:
 
 To start the simulation, we need to run the ngspice tool providing the configuration file we fixed on the previous step. Be sure to be on the directory of this file to run this command:
 ```
-% ngspice sky130\_inv.spice
+% ngspice sky130_inv.spice
 ```
 Once this runs we can plot the results on different views, the first plot we will try is the voltage on the Y axis, the simulation time on the X axis and we will be sweeping the output voltage(y) and the input voltage (a).
 
 This is done by typing this command on the ngspice console:
 ```
--\&gt; plot y vs time a
+-> plot y vs time a
 ```
 The resulting plot will look like this:
 
@@ -263,7 +263,7 @@ By doing this exercise we can retrieve the characterization values of this cell,
 
 Make sure the cells pins aling with the metal grid they will connect to. We can reference the grid specification for all the PDK&#39;s layer on the following file:
 
-~/Desktop/work/tools/open\_lane\_working\_dir/pdks/sky130A/libs.tech/openlane/sky130\_fd\_sc\_hd/tracks.info
+~/Desktop/work/tools/open_lane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info
 
 The file looks like this:
 
@@ -293,7 +293,7 @@ We can also verify that the width and the height of the full cell matches the re
 
 Next, we need to create labels for every contact/port on the layout so the tool can create the lef correctly.
 
-You need to select the area of the port with the mouse and create a label on it by going to Edit -\&gt; Text on the upper menu.
+You need to select the area of the port with the mouse and create a label on it by going to Edit -> Text on the upper menu.
 
 Then you need to fill the form that just appeared with the details of the port:
 
@@ -310,9 +310,9 @@ See example below:
 
 Then these labels we created as ports, we need to classify them so the tool knows how to treat it. You select the label by pressing &quot;s&quot; on the keyboard until just the label is selected, then go to the tkcon window and type &quot;what&quot; to make sure you selected the correct label and see it is attached to the correct label.
 
-Then on the tkcon window you will specify if the port is an input, output or inout with the command &quot;port class \&lt;input output inout\&gt;&quot;.
+Then on the tkcon window you will specify if the port is an input, output or inout with the command &quot;port class <input output inout>&quot;.
 
-Then you will specify the port usage with &quot;port use \&lt;signal power\&gt;&quot;.
+Then you will specify the port usage with &quot;port use <signal power>&quot;.
 
 You can see the example below:
 
@@ -320,7 +320,7 @@ You can see the example below:
 
 Then we save a copy of the cell with the command:
 ```
-% save \&lt;the name you want to give\&gt;.mag
+% save <the name you want to give>.mag
 ```
 Lastly, to extract the lef type:
 ```
@@ -336,17 +336,17 @@ If you read it you will see something like this:
 
 To add the newly generated lef, we need to copy the file to:
 ```
-$ cp ~/Desktop/vsdstdcelldesign/\&lt;name of your cell\&gt;.lef ~/designs/\&lt;your design\&gt;/src
+$ cp ~/Desktop/vsdstdcelldesign/<name of your cell>.lef ~/designs/<your design>/src
 ```
 Also, the cloned git repo provided the characterization for this cell for all the corners (we already saw the basic way to characterize a cell in spice but this files have the complete characterization and it is placed in the correct format)
 
 We need to copy this library characterization files in the same src folder
 ```
-$ cp ~/Desktop/vsdstdcelldesign/libs/sky130\_fd\_sc\_hd\_\_\* ~/designs/\&lt;your design\&gt;/src
+$ cp ~/Desktop/vsdstdcelldesign/libs/sky130_fd_sc_hd__\* ~/designs/<your design>/src
 ```
 Then we need to edit the config.tcl in the design directory:
 
-~/designs/\&lt;your design\&gt;/config.tcl
+~/designs/<your design>/config.tcl
 
 We need to add the lines 15 through 20 shown in the picture:
 
@@ -360,19 +360,19 @@ $ ./flow.tcl -interactive
 
 % package require openlane 0.9
 
-%prep -design \&lt;your design name\&gt; -tag \&lt;tag you assigned to your runs\&gt; -overwrite
+%prep -design <your design name> -tag <tag you assigned to your runs> -overwrite
 ```
 When running prep, it will delete the previous synthesis run since we gave it the -overwrite switch
 
 Next wee need to point to the lef file on the fly in the console so it takes it in the synthesis run:
 ```
-% set lefs [glob $::env(DESIGN\_DIR)/src/\*.lef]
+% set lefs [glob $::env(DESIGN_DIR)/src/\*.lef]
 
-% add\_lefs -src $lefs
+% add_lefs -src $lefs
 ```
 Now, we just need to run synthesis and wait to see if the new library was used:
 ```
-% run\_synthesis
+% run_synthesis
 ```
 You can check the list of standard cells used on the synthesis on the prompt:
 
@@ -392,17 +392,17 @@ To fix it, we will change the synthesis strategy used. By changing this, you wil
 
 If you open the README.md inside the configuration folder:
 ```
-$ less ~/Desktop/work/tools/open\_lane\_working\_dir/openLane\_flow/configuration/README.md
+$ less ~/Desktop/work/tools/open_lane_working_dir/openLane_flow/configuration/README.md
 ```
-You will notice there is an environmental variable used to change the strategy called &quot;SYNTH\_STRATEGY&quot;, which description is as follows:
+You will notice there is an environmental variable used to change the strategy called &quot;SYNTH_STRATEGY&quot;, which description is as follows:
 
 ![image](https://user-images.githubusercontent.com/16291730/105904103-577f2800-5fe6-11eb-8d26-f7b56987bb75.png)
 
-As you can see the current SYNTH\_STRATEGY is set to 2, so we will change it to 2:
+As you can see the current SYNTH_STRATEGY is set to 2, so we will change it to 2:
 
 ![image](https://user-images.githubusercontent.com/16291730/105904123-5d750900-5fe6-11eb-95b9-77ffb0273edb.png)
 
-We will also modify the SYNTH\_SIZING variable:
+We will also modify the SYNTH_SIZING variable:
 
 ![image](https://user-images.githubusercontent.com/16291730/105904136-61089000-5fe6-11eb-8f2f-ffa3c72756e0.png)
 
@@ -410,7 +410,7 @@ From 0 to 1
 
 Next we will run synthesis again:
 ```
-% run\_synthesis
+% run_synthesis
 ```
 ![image](https://user-images.githubusercontent.com/16291730/105904144-64038080-5fe6-11eb-87eb-728e39dfcc43.png)
 
@@ -420,24 +420,24 @@ We can see the slack still being violated, but we made a huge improvement, which
 
 Next, to set up the floorplan, use the command:
 ```
-% run\_floorplan
+% run_floorplan
 ```
 Once it finishes, run placement with:
 ```
-% run\_placement
+% run_placement
 ```
 The placement will create a def file you can see using magic:
 ```
-$ magic -T \&lt;PDK tech file\&gt; lef read \&lt;Merged lef\&gt; read \&lt;Floorplan def\&gt;
+$ magic -T <PDK tech file> lef read <Merged lef> read <Floorplan def>
 ```
 For the command above the location of the files is the following:
 
 - PDK tech file:
-  - ~/Desktop/work/tools/open\_lane\_working\_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
+  - ~/Desktop/work/tools/open_lane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech
 - Merged lef:
-  - ~/designs/\&lt;your design\&gt;/\&lt;run name you placed on -tag\&gt;/tmp/merged.lef
+  - ~/designs/<your design>/<run name you placed on -tag>/tmp/merged.lef
 - Placement def:
-  - ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/placement/\&lt;design name\&gt;.placement.def
+  - ~/designs/picorv32a/runs/<the tag you used>/results/placement/<design name>.placement.def
 
 ![image](https://user-images.githubusercontent.com/16291730/105904150-67970780-5fe6-11eb-9db4-f7328872110a.png)
 
@@ -445,7 +445,7 @@ For the command above the location of the files is the following:
 
 To run STA, we need to create a short script on the openlane work directory:
 
-~/Desktop/work/tools/open\_lane\_working\_dir/openLane\_flow/pre\_sta.conf
+~/Desktop/work/tools/open_lane_working_dir/openLane_flow/pre_sta.conf
 
 Which looks like this:
 
@@ -455,7 +455,7 @@ To tell the sta tool where to find the models for setup time, hold time, the sdc
 
 To run sta, type the command on the terminal:
 ```
-$ sta \&lt;the sta config file\&gt;
+$ sta <the sta config file>
 ```
 ## Optimizing slew and load values by optimizing fanout
 
@@ -465,21 +465,21 @@ After doing our synthesis, we noticed a slack problem. After looking at the cell
 
 You can see the fanout of some cells is driving 5 to 6 cells. To get a detail report on this on the sta tool, you can execute the command:
 ```
-% report\_net -connections \&lt;net to report\&gt;
+% report_net -connections <net to report>
 ```
 ![image](https://user-images.githubusercontent.com/16291730/105904192-741b6000-5fe6-11eb-9612-e6762c23df39.png)
 
 We can change the strategy for fanout to improve it:
 ```
-% set ::env(SYNTH\_MAX\_FANOUT) 4
+% set ::env(SYNTH_MAX_FANOUT) 4
 ```
 After doing some fixes on the netlist using the sta tool, we can write out the fixed netlist in the sta command line with:
 ```
-% write\_verilog \&lt;filepath/filename\&gt;
+% write_verilog <filepath/filename>
 ```
 The idea is to replace the netlist on:
 
-~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/synthesis
+~/designs/picorv32a/runs/<the tag you used>/results/synthesis
 
 Once we replace it, we have to meake sure not to run synthesis again on openlane, so it takes this new gate level netlist.
 
@@ -489,7 +489,7 @@ So just run floorplan and placement on open lane to continue with the flow.
 
 To insert the clock tree in our netlist, just type:
 ```
-% run\_cts
+% run_cts
 ```
 This will run the Triton CTS tool and route the clocks in the design.
 
@@ -501,47 +501,47 @@ To perform the sta with the cts integrated, open the tool openroad by typing:
 ```
 Now we need to create a data base for the run. First step is to read the merged lef:
 ```
-% read\_lef ~/designs/\&lt;your design\&gt;/\&lt;run name you placed on -tag\&gt;/tmp/merged.lef
+% read_lef ~/designs/<your design>/<run name you placed on -tag>/tmp/merged.lef
 ```
 The next file we need to load is the post cts def file:
 ```
-% read\_def ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/cts/\&lt;design name\&gt;.cts.def
+% read_def ~/designs/picorv32a/runs/<the tag you used>/results/cts/<design name>.cts.def
 ```
 After reading the input files now we can write the data base:
 ```
-% write\_db \&lt;data base name you want\&gt;.db
+% write_db <data base name you want>.db
 ```
 After writing out the DB, now we need to read it:
 ```
-% read\_db \&lt;data base name you want\&gt;.db
+% read_db <data base name you want>.db
 ```
 Next we load the post cts netlist Verilog file
 ```
-% read\_verilog ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/synthesis/\&lt;design\&gt;.synthesis\_cts.v
+% read_verilog ~/designs/picorv32a/runs/<the tag you used>/results/synthesis/<design>.synthesis_cts.v
 ```
 Now read the liberty files:
 ```
-% read\_liberty -max $::env(LIB\_SYNTH\_COMPLETE)
+% read_liberty -max $::env(LIB_SYNTH_COMPLETE)
 ```
 THIS functionality is not ready in open lane since the cts process is not multi corner enabled yet
 ```
-% read\_liberty -max $::env(LIB\_MAX)
+% read_liberty -max $::env(LIB_MAX)
 
-% read\_liberty -max $::env(LIB\_MIN)
+% read_liberty -max $::env(LIB_MIN)
 ```
 The next file is the SDC file:
 ```
-% read\_sdc
+% read_sdc
 ```
-~/designs/\&lt;your design\&gt;/src/my\_base.sdc
+~/designs/<your design>/src/my_base.sdc
 
 Then set the tool to use the propagated clocks model:
 ```
-% set\_propagated\_clock [all\_clocks]
+% set_propagated_clock [all_clocks]
 ```
 Next you can run the report generation with:
 ```
-% report\_checks -path\_delay min\_max -format full\_clock\_expanded -digits 4
+% report_checks -path_delay min_max -format full_clock_expanded -digits 4
 ```
 You should see the timing report like this:
 
@@ -557,7 +557,7 @@ That looks like this:
 
 And a skew report for setup:
 ```
-% report\_clock\_skew -setup
+% report_clock_skew -setup
 ```
 ![image](https://user-images.githubusercontent.com/16291730/105904244-809fb880-5fe6-11eb-84ed-2b29bb2c92e8.png)
 
@@ -571,13 +571,13 @@ On a standard flow, the power distribution network needs to be created at the fl
 
 To to the pwer distribution network type:
 ```
-% gen\_pdn
+% gen_pdn
 ```
 This step will insert the power rails VDD and GND for the std cells to be connected. This is done in metal1.
 
 This will generate a def file containing the power rails on:
 
-~/designs/\&lt;your design\&gt;/\&lt;run name you placed on -tag\&gt;/tmp/floorplan/pnd.def
+~/designs/<your design>/<run name you placed on -tag>/tmp/floorplan/pnd.def
 
 If you open the def file it will look like this in magic:
 
@@ -587,38 +587,38 @@ If you open the def file it will look like this in magic:
 
 To start the routing process, just type:
 ```
-% run\_routing
+% run_routing
 ```
 Once the routing finishes using FastRoute for route preprocessing and Triton route for detailed routing, we need to extract the routing parasitics to be able to run a final timing analysis on the design.
 
-Since the Openlane tool is still missing this functionality, this needs to be done externally on the SPEF\_EXTRACTOR tool. You can fin this tool in the following directory:
+Since the Openlane tool is still missing this functionality, this needs to be done externally on the SPEF_EXTRACTOR tool. You can fin this tool in the following directory:
 ```
-$ cd ~/Desktop/work/tools/SPEF\_EXTRACTOR
+$ cd ~/Desktop/work/tools/SPEF_EXTRACTOR
 ```
 Inside the directory you will find the python script that need to be run. To make it work, you need to provide it the merged lef file and the post-routing def file. This is the command
 ```
-$ python3 main.py \&lt;path to the merged lef\&gt;/.merged.lef \&lt;path to the routing def\&gt;/\&lt;design name\&gt;.def
+$ python3 main.py <path to the merged lef>/.merged.lef <path to the routing def>/<design name>.def
 ```
 This are the usual paths where this files can be found:
 
 - Path to the merged lef:
-  - ~/designs/\&lt;your design\&gt;/\&lt;run name you placed on -tag\&gt;/tmp/merged.lef
+  - ~/designs/<your design>/<run name you placed on -tag>/tmp/merged.lef
 - Path to the routing def:
-  - ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/routing/\&lt;design name\&gt;.def
+  - ~/designs/picorv32a/runs/<the tag you used>/results/routing/<design name>.def
 
 This will create a SPEF file in the same directory as the def:
 
-~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/routing/picorv32a.spef
+~/designs/picorv32a/runs/<the tag you used>/results/routing/picorv32a.spef
 
 Now that you have a spef file, you can run openroute to do sta analysis. Just follow the complete steps to run the tool.
 
 The only 2 changes you need to give it before running the report is the spef to take the parasitics of the routing into consideration:
 ```
-% read\_spef ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/routing/picorv32a.spef
+% read_spef ~/designs/picorv32a/runs/<the tag you used>/results/routing/picorv32a.spef
 ```
 And the Verilog netlist you need to provide is different:
 ```
-% read\_verilog ~/designs/picorv32a/runs/\&lt;the tag you used\&gt;/results/synthesis/\&lt;design\&gt;.synthesis\_preroute.v
+% read_verilog ~/designs/picorv32a/runs/<the tag you used>/results/synthesis/<design>.synthesis_preroute.v
 ```
 After running the report, you can see if you meet the slack for hold:
 

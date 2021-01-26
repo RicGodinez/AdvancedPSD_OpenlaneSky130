@@ -553,7 +553,6 @@ And a skew report for setup:
 ```
 % report_clock_skew -setup
 ```
-![image](https://user-images.githubusercontent.com/16291730/105904249-84333f80-5fe6-11eb-8835-80d16b9f9fb9.png)
 
 ## Day 5
 
@@ -575,7 +574,7 @@ This will generate a def file containing the power rails on:
 
 If you open the def file it will look like this in magic:
 
-![image](https://user-images.githubusercontent.com/16291730/105904262-885f5d00-5fe6-11eb-8275-751bfaabe6a8.png)
+![image](https://user-images.githubusercontent.com/16291730/105904249-84333f80-5fe6-11eb-8835-80d16b9f9fb9.png)
 
 ## Routing
 
@@ -616,15 +615,22 @@ And the Verilog netlist you need to provide is different:
 ```
 After running the report, you can see if you meet the slack for hold:
 
-![image](https://user-images.githubusercontent.com/16291730/105904269-8bf2e400-5fe6-11eb-94a4-71b2287c7fff.png)
+![image](https://user-images.githubusercontent.com/16291730/105904262-885f5d00-5fe6-11eb-8275-751bfaabe6a8.png)
 
 Slack for setup:
 
-![image](https://user-images.githubusercontent.com/16291730/105904290-91502e80-5fe6-11eb-8875-a6c3b01461a1.png)
+![image](https://user-images.githubusercontent.com/16291730/105904269-8bf2e400-5fe6-11eb-94a4-71b2287c7fff.png)
 
 Clock skew for hold
 
-![image](https://user-images.githubusercontent.com/16291730/105904299-944b1f00-5fe6-11eb-8959-97355fa9d986.png)
+![image](https://user-images.githubusercontent.com/16291730/105904290-91502e80-5fe6-11eb-8875-a6c3b01461a1.png)
 
 And clock skew for setup
 
+![image](https://user-images.githubusercontent.com/16291730/105904299-944b1f00-5fe6-11eb-8959-97355fa9d986.png)
+
+
+## Concusion
+By completing this workshop I now grasp the idea on how the Opnsource enviroment works and how are the tools evolving to be able to design an chip with minimal costs.I learned a lot on the tools available and how to operate them. This intensive 5 day workshop will definetly help with my carreer growth.
+
+Thanks to all who invested time and energy on producing this workshop and mentoring me to complete this milestone.

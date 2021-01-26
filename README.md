@@ -93,7 +93,7 @@ This will open the Magic GUI:
 
 Since this is just the floor plan stage, only the pins were placed according to the floorplan configuration, all the cells inside the design are not placed still, they are just appearing all in the bottom left corner of the die.
 
-## Placement
+### Placement
 
 #### Global Placement
 
@@ -157,9 +157,6 @@ This will open the magic&#39;s GUI to see the layout of this inverter:
 
 ![image](https://user-images.githubusercontent.com/16291730/105903950-2868b680-5fe6-11eb-92c0-ca9a81f2e952.png)
 
-###
-
-###
 
 ### Custom CMOS inverter cell design- Parasitic extraction
 
@@ -374,9 +371,7 @@ You can check the list of standard cells used on the synthesis on the prompt:
 
 And we can see the custom cell was used 2201 times in the synthesis.
 
-##
-
-## Fixing the slack caused by the custom inverter
+### Fixing the slack caused by the custom inverter
 
 Unfortunately, after running synthesis, the tool reported a slack problem with the new cell as shown on the image below:
 
@@ -435,7 +430,7 @@ For the command above the location of the files is the following:
 
 ![image](https://user-images.githubusercontent.com/16291730/105904166-6c5bbb80-5fe6-11eb-89ff-c7eeeaad69fe.png)
 
-## Running STA
+### Running STA
 
 To run STA, we need to create a short script on the openlane work directory:
 
@@ -451,7 +446,7 @@ To run sta, type the command on the terminal:
 ```
 $ sta <the sta config file>
 ```
-## Optimizing slew and load values by optimizing fanout
+### Optimizing slew and load values by optimizing fanout
 
 After doing our synthesis, we noticed a slack problem. After looking at the cells use, this slew values and load values are too high due to the fact they have a lot of fanout:
 
@@ -487,7 +482,7 @@ To insert the clock tree in our netlist, just type:
 ```
 This will run the Triton CTS tool and route the clocks in the design.
 
-## Timing Analysis with real clocks
+### Timing Analysis with real clocks
 
 To perform the sta with the cts integrated, open the tool openroad by typing:
 ```
@@ -556,8 +551,6 @@ And a skew report for setup:
 
 ## Day 5
 
-###
-
 ### Build power distribution network
 
 On a standard flow, the power distribution network needs to be created at the floorplaning stage, but openlane has some issues doing it on that stage, so it is done as a pre routing step.
@@ -576,7 +569,7 @@ If you open the def file it will look like this in magic:
 
 ![image](https://user-images.githubusercontent.com/16291730/105904249-84333f80-5fe6-11eb-8835-80d16b9f9fb9.png)
 
-## Routing
+### Routing
 
 To start the routing process, just type:
 ```

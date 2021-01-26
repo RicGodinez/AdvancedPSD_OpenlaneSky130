@@ -234,26 +234,22 @@ Then you can use the left click, to click on any region on the plot to get the e
 
 By doing this exercise we can retrieve the characterization values of this cell, which are shown below:
 
-| --- | --- | --- | --- |
+
 | | MAX | 20% | 80% | 50% |
 | --- | --- | --- | --- | --- |
 | Voltage | 3.3 | 0.66 | 2.64 | 1.65 |
-| --- | --- | --- | --- |
 
-| --- | --- | --- | --- |
+
 | | 20% output V time | 80% output V time | Delay |
 | --- | --- | --- | --- |
 | rise transition delay | 2.1819E-09 | 2.2469E-09 | 6.5E-11 |
 | fall transition delay | 4.095E-09 | 4.0529E-09 | 4.21E-11 |
-| --- | --- | --- | --- |
 
 
-| --- | --- | --- | --- |
 | | 50% V input time | 50% V output time | Delay |
+| --- | --- | --- | --- |
 | rise propagation delay | 2.1507E-09 | 2.21197E-09 | 6.127E-11 |
-| --- | --- | --- | --- |
 | fall propagation delay | 4.0498E-09 | 4.07746E-09 | 2.77E-11 |
-| --- | --- | --- | --- |
 
 ## Day 4
 

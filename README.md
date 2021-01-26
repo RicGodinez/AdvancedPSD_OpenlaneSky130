@@ -261,7 +261,7 @@ Make sure the cells pins aling with the metal grid they will connect to. We can 
 
 The file looks like this:
 
-![](RackMultipart20210126-4-zlf5u9_html_340b6cf1e42ab531.png)
+![image](https://user-images.githubusercontent.com/16291730/105904013-3a4a5980-5fe6-11eb-8cb6-079228363ffb.png)
 
 In each layer, you will see a row for horizontal grid definition (X) and another for the vertical (Y). The first value is the origin value of the grid and the second one the spacing.
 
@@ -273,7 +273,7 @@ We open the design in magic and we activate the grid by pressing &quot;g&quot; o
 ```
 Which will print the following instructions:
 
-![image](https://user-images.githubusercontent.com/16291730/105904013-3a4a5980-5fe6-11eb-8cb6-079228363ffb.png)
+![image](https://user-images.githubusercontent.com/16291730/105904031-3e767700-5fe6-11eb-9621-a0f57da875d2.png)
 
 So based on what the tracks.info file tells us for the li1 layer grid, we can set up the visual grid to match that grid with the command:
 ```
@@ -281,7 +281,7 @@ So based on what the tracks.info file tells us for the li1 layer grid, we can se
 ```
 Then you can go back ti layout window and verify the A and Y contacts indeed intersect with the li1 layer grid:
 
-![image](https://user-images.githubusercontent.com/16291730/105904031-3e767700-5fe6-11eb-9621-a0f57da875d2.png)
+![image](https://user-images.githubusercontent.com/16291730/105904038-41716780-5fe6-11eb-810c-de6c5952f2d8.png)
 
 We can also verify that the width and the height of the full cell matches the requirements.
 
@@ -300,7 +300,7 @@ Then you need to fill the form that just appeared with the details of the port:
 
 See example below:
 
-![image](https://user-images.githubusercontent.com/16291730/105904038-41716780-5fe6-11eb-810c-de6c5952f2d8.png)
+![image](https://user-images.githubusercontent.com/16291730/105904046-459d8500-5fe6-11eb-9e6e-44c10571849d.png)
 
 Then these labels we created as ports, we need to classify them so the tool knows how to treat it. You select the label by pressing &quot;s&quot; on the keyboard until just the label is selected, then go to the tkcon window and type &quot;what&quot; to make sure you selected the correct label and see it is attached to the correct label.
 
@@ -310,7 +310,7 @@ Then you will specify the port usage with &quot;port use <signal power>&quot;.
 
 You can see the example below:
 
-![image](https://user-images.githubusercontent.com/16291730/105904046-459d8500-5fe6-11eb-9e6e-44c10571849d.png)
+![image](https://user-images.githubusercontent.com/16291730/105904057-49c9a280-5fe6-11eb-8e1c-e73cbcb8a1a1.png)
 
 Then we save a copy of the cell with the command:
 ```
@@ -324,7 +324,7 @@ This creates the lef file with the same name of your cell but with the extension
 
 If you read it you will see something like this:
 
-![image](https://user-images.githubusercontent.com/16291730/105904057-49c9a280-5fe6-11eb-8e1c-e73cbcb8a1a1.png)
+![image](https://user-images.githubusercontent.com/16291730/105904074-4df5c000-5fe6-11eb-93ff-839425418186.png)
 
 ## Adding the custom cell to the design library
 
@@ -344,7 +344,7 @@ Then we need to edit the config.tcl in the design directory:
 
 We need to add the lines 15 through 20 shown in the picture:
 
-![image](https://user-images.githubusercontent.com/16291730/105904074-4df5c000-5fe6-11eb-93ff-839425418186.png)
+![image](https://user-images.githubusercontent.com/16291730/105904080-50f0b080-5fe6-11eb-9b58-996b8002db30.png)
 
 This will let open lane know where to grab the characterization files and will add our lef to the list of lefs in the synthesys run.
 
@@ -370,7 +370,7 @@ Now, we just need to run synthesis and wait to see if the new library was used:
 ```
 You can check the list of standard cells used on the synthesis on the prompt:
 
-![image](https://user-images.githubusercontent.com/16291730/105904080-50f0b080-5fe6-11eb-9b58-996b8002db30.png)
+![image](https://user-images.githubusercontent.com/16291730/105904091-54843780-5fe6-11eb-849b-b50c7715185f.png)
 
 And we can see the custom cell was used 2201 times in the synthesis.
 
@@ -380,7 +380,7 @@ And we can see the custom cell was used 2201 times in the synthesis.
 
 Unfortunately, after running synthesis, the tool reported a slack problem with the new cell as shown on the image below:
 
-![image](https://user-images.githubusercontent.com/16291730/105904091-54843780-5fe6-11eb-849b-b50c7715185f.png)
+![image](https://user-images.githubusercontent.com/16291730/105904103-577f2800-5fe6-11eb-8d26-f7b56987bb75.png)
 
 To fix it, we will change the synthesis strategy used. By changing this, you will sacrifice area for speed by a selecting different set of standard cells that will be faster, but bigger in size.
 
@@ -390,15 +390,15 @@ $ less ~/Desktop/work/tools/open_lane_working_dir/openLane_flow/configuration/RE
 ```
 You will notice there is an environmental variable used to change the strategy called &quot;SYNTH_STRATEGY&quot;, which description is as follows:
 
-![image](https://user-images.githubusercontent.com/16291730/105904103-577f2800-5fe6-11eb-8d26-f7b56987bb75.png)
+![image](https://user-images.githubusercontent.com/16291730/105904123-5d750900-5fe6-11eb-95b9-77ffb0273edb.png)
 
 As you can see the current SYNTH_STRATEGY is set to 2, so we will change it to 2:
 
-![image](https://user-images.githubusercontent.com/16291730/105904123-5d750900-5fe6-11eb-95b9-77ffb0273edb.png)
+![image](https://user-images.githubusercontent.com/16291730/105904136-61089000-5fe6-11eb-8f2f-ffa3c72756e0.png)
 
 We will also modify the SYNTH_SIZING variable:
 
-![image](https://user-images.githubusercontent.com/16291730/105904136-61089000-5fe6-11eb-8f2f-ffa3c72756e0.png)
+![image](https://user-images.githubusercontent.com/16291730/105904144-64038080-5fe6-11eb-87eb-728e39dfcc43.png)
 
 From 0 to 1
 
@@ -406,7 +406,7 @@ Next we will run synthesis again:
 ```
 % run_synthesis
 ```
-![image](https://user-images.githubusercontent.com/16291730/105904144-64038080-5fe6-11eb-87eb-728e39dfcc43.png)
+![image](https://user-images.githubusercontent.com/16291730/105904150-67970780-5fe6-11eb-9db4-f7328872110a.png)
 
 We can see the slack still being violated, but we made a huge improvement, which we can fix later with a more focused timing analysis.
 
@@ -433,7 +433,7 @@ For the command above the location of the files is the following:
 - Placement def:
   - ~/designs/picorv32a/runs/<the tag you used>/results/placement/<design name>.placement.def
 
-![image](https://user-images.githubusercontent.com/16291730/105904150-67970780-5fe6-11eb-9db4-f7328872110a.png)
+![image](https://user-images.githubusercontent.com/16291730/105904166-6c5bbb80-5fe6-11eb-89ff-c7eeeaad69fe.png)
 
 ## Running STA
 
@@ -443,7 +443,7 @@ To run STA, we need to create a short script on the openlane work directory:
 
 Which looks like this:
 
-![image](https://user-images.githubusercontent.com/16291730/105904166-6c5bbb80-5fe6-11eb-89ff-c7eeeaad69fe.png)
+![image](https://user-images.githubusercontent.com/16291730/105904183-71206f80-5fe6-11eb-82a0-8783e7afd13b.png)
 
 To tell the sta tool where to find the models for setup time, hold time, the sdc file and the synthesized netlist.
 
@@ -455,13 +455,13 @@ $ sta <the sta config file>
 
 After doing our synthesis, we noticed a slack problem. After looking at the cells use, this slew values and load values are too high due to the fact they have a lot of fanout:
 
-![image](https://user-images.githubusercontent.com/16291730/105904183-71206f80-5fe6-11eb-82a0-8783e7afd13b.png)
+![image](https://user-images.githubusercontent.com/16291730/105904192-741b6000-5fe6-11eb-9612-e6762c23df39.png)
 
 You can see the fanout of some cells is driving 5 to 6 cells. To get a detail report on this on the sta tool, you can execute the command:
 ```
 % report_net -connections <net to report>
 ```
-![image](https://user-images.githubusercontent.com/16291730/105904192-741b6000-5fe6-11eb-9612-e6762c23df39.png)
+![image](https://user-images.githubusercontent.com/16291730/105904202-77165080-5fe6-11eb-9e59-a1844c2ecbb4.png)
 
 We can change the strategy for fanout to improve it:
 ```
@@ -539,21 +539,21 @@ Next you can run the report generation with:
 ```
 You should see the timing report like this:
 
-![image](https://user-images.githubusercontent.com/16291730/105904202-77165080-5fe6-11eb-9e59-a1844c2ecbb4.png)
+![image](https://user-images.githubusercontent.com/16291730/105904221-7b426e00-5fe6-11eb-8ef8-219fc50f178e.png)
 
 You can also create a hold clock skew report with:
 
-![image](https://user-images.githubusercontent.com/16291730/105904221-7b426e00-5fe6-11eb-8ef8-219fc50f178e.png)
+![image](https://user-images.githubusercontent.com/16291730/105904235-7ed5f500-5fe6-11eb-94f5-97acdb508d1d.png)
 
 That looks like this:
 
-![image](https://user-images.githubusercontent.com/16291730/105904235-7ed5f500-5fe6-11eb-94f5-97acdb508d1d.png)
+![image](https://user-images.githubusercontent.com/16291730/105904244-809fb880-5fe6-11eb-84ed-2b29bb2c92e8.png)
 
 And a skew report for setup:
 ```
 % report_clock_skew -setup
 ```
-![image](https://user-images.githubusercontent.com/16291730/105904244-809fb880-5fe6-11eb-84ed-2b29bb2c92e8.png)
+![image](https://user-images.githubusercontent.com/16291730/105904249-84333f80-5fe6-11eb-8835-80d16b9f9fb9.png)
 
 ## Day 5
 
@@ -575,7 +575,7 @@ This will generate a def file containing the power rails on:
 
 If you open the def file it will look like this in magic:
 
-![image](https://user-images.githubusercontent.com/16291730/105904249-84333f80-5fe6-11eb-8835-80d16b9f9fb9.png)
+![image](https://user-images.githubusercontent.com/16291730/105904262-885f5d00-5fe6-11eb-8275-751bfaabe6a8.png)
 
 ## Routing
 
@@ -616,16 +616,15 @@ And the Verilog netlist you need to provide is different:
 ```
 After running the report, you can see if you meet the slack for hold:
 
-![image](https://user-images.githubusercontent.com/16291730/105904262-885f5d00-5fe6-11eb-8275-751bfaabe6a8.png)
+![image](https://user-images.githubusercontent.com/16291730/105904269-8bf2e400-5fe6-11eb-94a4-71b2287c7fff.png)
 
 Slack for setup:
 
-![image](https://user-images.githubusercontent.com/16291730/105904269-8bf2e400-5fe6-11eb-94a4-71b2287c7fff.png)
+![image](https://user-images.githubusercontent.com/16291730/105904290-91502e80-5fe6-11eb-8875-a6c3b01461a1.png)
 
 Clock skew for hold
 
-![image](https://user-images.githubusercontent.com/16291730/105904290-91502e80-5fe6-11eb-8875-a6c3b01461a1.png)
+![image](https://user-images.githubusercontent.com/16291730/105904299-944b1f00-5fe6-11eb-8959-97355fa9d986.png)
 
 And clock skew for setup
 
-![image](https://user-images.githubusercontent.com/16291730/105904299-944b1f00-5fe6-11eb-8959-97355fa9d986.png)

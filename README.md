@@ -8,13 +8,16 @@ This documentation contains the pogress made on the VSD Advanced Physiscal Desig
 
 ### Openlane flow
 
-Open lane is an opensource EDA tool, this tool is a workflow manager that takes and existing RTL through the complete process of Synthesis, Floorplanning, Placement, Clock treee Synthesis, Static timing analysis, Power Distribution, and Routing. The final result is a GDS file that can be sent to a FAB for manufaturing the chip.
 
-The image below shows all the Open source EDA tools involved in the process which are wrapped around OpenLane to help simplify the design flow:
+Open lane is an opensource EDA tool that functions as a workflow manager. It takes an existing RTL through the complete process of Synthesis, Floorplanning, Placement, Clock Tree Synthesis, Static Timing Analysis, Power Distribution, and Routing. The final result is a GDS file that can be sent to a FAB for manufacturing the chip.
+
+This tool leverages the Opensource PDK released by Google and Skywater on a technology of 130nm (sky130), which contains a comprehensive library of standard cells and DRC rules to be able to manufacture a silicon using this tech.
+
+The image below shows all the Open-source EDA tools involved in the process which are wrapped around OpenLane to help simplify the design flow:
 
 ![image](https://user-images.githubusercontent.com/16291730/105903892-171faa00-5fe6-11eb-85f0-6bce8b05f97a.png)
 
-For a guide on how to instal this free tools on your computer refer to this links:
+For a guide on how to install this free tools on your computer refer to this links:
 
 https://www.udemy.com/course/vsd-a-complete-guide-to-install-openlane-and-sky130nm-pdk/learn/lecture/21989274#overview
 https://www.udemy.com/course/vsd-a-complete-guide-to-install-open-source-eda-tools/learn/lecture/6719216#notes
